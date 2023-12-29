@@ -4,7 +4,7 @@ import Tableau from "./Tableau";
 import styles from "./ShowAllBotanists.module.scss";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import loadingGif from "../../../../assets/images/logoFlex/1Ktv.gif";
+import loadingGif from "../../../../assets/images/logo/1Ktv.gif";
 import { usePreviousPageId } from "../../components/IdContext";
 import { accountService } from "../../../../_services/accountService";
 

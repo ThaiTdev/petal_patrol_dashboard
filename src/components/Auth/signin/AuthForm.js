@@ -7,7 +7,7 @@ import styles from "./AuthForm.module.scss";
 //j'importe le useNavigate pour mes route vers d'autre pages
 import { useNavigate } from "react-router-dom";
 import { accountService } from "../../../_services/accountService";
-import picto from "../../../assets/images/logoFlex/grainou_la_graine.png";
+import picto from "../../../assets/images/logo/grainou_la_graine.png";
 
 function AuthForm() {
   const [checkpassWord, setCheckPassWord] = useState(true);

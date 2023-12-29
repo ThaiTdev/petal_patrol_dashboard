@@ -5,8 +5,8 @@ import { useInputControlReset } from "../../Hooks/HookAuth/useInputControlReset"
 import { accountService } from "../../../_services/accountService";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import key from "../../../assets/images/logoFlex/key.jpg";
-import Decor from "../../../assets/images/logoFlex/Decor.jpg";
+import key from "../../../assets/images/logo/key.jpg";
+import Decor from "../../../assets/images/logo/Decor.jpg";
 
 function ResetPassword() {
   const { id, token, serverToken } = useParams();

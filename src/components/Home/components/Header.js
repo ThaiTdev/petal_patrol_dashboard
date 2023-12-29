@@ -1,5 +1,5 @@
 import styles from "./Header.module.scss";
-import picto from "../../../assets/images/logoFlex/grainou_la_graine.png";
+import picto from "../../../assets/images/logo/grainou_la_graine.png";
 import { useNavigate } from "react-router-dom";
 import { Link, useParams } from "react-router-dom";
 import { usePreviousPageId } from "../components/IdContext";
