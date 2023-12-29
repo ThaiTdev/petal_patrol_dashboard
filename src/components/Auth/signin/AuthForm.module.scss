@@ -1,0 +1,95 @@
+@use "../../../assets/styles/mixins" as mixin;
+
+.AuthPage {
+  width: 500px;
+  min-height: 90vh;
+  height: auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: var(--box-shadow-nav);
+  background-color: rgb(237, 253, 253);
+  border-radius: 20px;
+
+  @include mixin.xs {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-areas:
+      "title"
+      "form"
+      "social";
+  }
+}
+
+.box_title {
+  grid-area: title;
+  padding-left: 30px;
+  width: 100%;
+  position: relative;
+  top: 50px;
+
+  .title {
+    color: var(--primary-2);
+    font-weight: 500;
+  }
+  img {
+    position: absolute;
+    left: 10px;
+    bottom: -10px;
+    z-index: -2;
+  }
+}
+
+.box_form {
+  grid-area: form;
+  height: 350px;
+  width: 100%;
+  .box_input {
+    padding: 80px 30px 0 30px;
+    label {
+      color: var(--neutral-2);
+    }
+    input {
+      border: none;
+      border-bottom: 1px solid var(--neutral-7);
+      padding: 4px;
+    }
+    .box_password {
+      position: relative;
+      input {
+        width: 100%;
+      }
+
+      i {
+        position: absolute;
+        color: var(--neutral-3);
+        opacity: 0.3;
+
+        top: 4px;
+        right: 8px;
+      }
+    }
+  }
+
+  .mot2pass {
+    text-align: right;
+    padding-right: 10px;
+    text-decoration: none;
+    color: var(--neutral-3);
+    cursor: pointer;
+  }
+}
+
+.social {
+  grid-area: social;
+  padding: 0 20px;
+}
+
+.ContainerLogo {
+  width: 80px;
+  overflow: hidden;
+}

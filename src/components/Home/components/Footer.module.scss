@@ -1,0 +1,10 @@
+@use "../../../assets/styles/mixins" as mixin;
+
+.footerContainer {
+  width: 100%;
+  height: 60px;
+  background-color: var(--semantic-6);
+  @include mixin.xs {
+    display: none;
+  }
+}

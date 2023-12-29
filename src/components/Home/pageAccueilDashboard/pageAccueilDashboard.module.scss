@@ -1,0 +1,67 @@
+@use "../../../assets/styles/mixins" as mixin;
+
+.mainPage {
+  height: 100vh;
+  .mainContainer {
+    margin-top: 170px;
+    width: 100%;
+    .boxTitle {
+      display: none;
+    }
+    .profilContainer {
+      width: 850px;
+      margin: auto;
+      height: 80%;
+
+      .title {
+        width: 100%;
+      }
+      .menu {
+        width: 100%;
+        .menuOption {
+          width: 150%;
+          .menuChangePage {
+            width: 100%;
+            margin-bottom: 30px;
+            .ChangePage {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              background-color: var(--neutral-8);
+              width: 300px;
+              height: 80px;
+              border: 1px solid var(--semantic-6);
+              border-radius: 10px;
+              box-shadow: var(--box-shadow-nav);
+              margin-left: 20px;
+              p {
+                font-weight: 700;
+                font-size: 0.9rem;
+                margin: 0 0 0 10px;
+              }
+              .definitionLink {
+                display: flex;
+              }
+              .Arrow {
+                display: none;
+              }
+              &:hover {
+                cursor: pointer;
+                color: var(--primary-3);
+                transition: all 0.4s;
+              }
+            }
+          }
+        }
+        .menuText {
+          width: 250px;
+          height: 100%;
+          margin-left: 20px;
+          p {
+            text-align: justify;
+          }
+        }
+      }
+    }
+  }
+}
