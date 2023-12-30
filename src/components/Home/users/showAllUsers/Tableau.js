@@ -4,6 +4,7 @@ import UpdateImage from "../../../../assets/images/users/update_user/crayon.png"
 import loadingGif from "../../../../assets/images/logo/1Ktv.gif";
 import { useNavigate } from "react-router-dom";
 import { RandomAvatar } from "react-random-avatars";
+import styles from "./Tableau.module.scss";
 
 function Tableau({ dataUsers }) {
   let navigate = useNavigate();
@@ -74,17 +75,27 @@ function Tableau({ dataUsers }) {
 
   return (
     <div
-      className={`d-flex flex-column justify-content-center align-items-end `}
+      className={`  ${
+        recordsState.length
+          ? styles.tableauContainer
+          : styles.tableauContainerFalse
+      }`}
     >
-      <div className={`d-flex justify-content-end align-items-start `}>
-        <div className={`d-flex justify-content-center align-items-start `}>
+      <div
+        className={`d-flex justify-content-end align-items-start  ${
+          !recordsState.length && styles.tableauSubContainer
+        } `}
+      >
+        <div className={`d-flex justify-content-around  align-items-start  `}>
           {!recordsState.length && (
             <div style={{ width: "300px" }}>
               <img src={loadingGif} alt="cactus" />
             </div>
           )}
-          <div className="text-end m-20">
+
+          <div className="text-end ml-20 ">
             <input
+              className={`text-end ml-20 ${styles.classInput}`}
               type="text"
               placeholder="Recherche User"
               onChange={handleFilter}
@@ -92,12 +103,14 @@ function Tableau({ dataUsers }) {
           </div>
         </div>
       </div>
-      <div>
+      <div className={`  ${styles.tableauUser}`}>
         <DataTable
           columns={columns}
           data={recordsState}
           fixedHeader
           pagination
+          paginationPerPage={5} // Set the number of items per page
+          paginationRowsPerPageOptions={[5, 10, 15, 20]} // Specify the available options for items per page
         ></DataTable>
       </div>
     </div>

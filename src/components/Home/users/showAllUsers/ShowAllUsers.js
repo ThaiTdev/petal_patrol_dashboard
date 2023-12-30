@@ -39,17 +39,17 @@ function ShowAllUsers() {
     >
       <Header linkCheck={linkCheck} />
       <div
-        className={`d-flex flex-column justify-content-center align-items-start  ${styles.profilContainer}`}
+        className={`d-flex flex-column justify-content-center align-items-center  ${styles.profilContainer}`}
       >
         <div
-          className={`d-flex flex-column  justify-content-center align-items-center mt-20  ${styles.container}`}
+          className={`d-flex flex-column  justify-content-center align-items-center   ${styles.container}`}
         >
-          <div className={`${styles.boxTitle}`}>
+          <div className={`${styles.boxTitle} mt-20`}>
             <h2>la liste des utilisateurs</h2>
           </div>
 
           <div
-            className={`d-flex flex-column justify-content-center align-items-center  ${styles.containerUser}`}
+            className={`d-flex flex-column justify-content-center align-items-center   ${styles.containerUser}`}
           >
             {dataUsers.length ? (
               <div className={`d-flex flex-column ${styles.tableauUser} `}>
