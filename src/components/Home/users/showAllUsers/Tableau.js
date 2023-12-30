@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import UpdateImage from "../../../../assets/images/users/update_user/crayon.png";
 import loadingGif from "../../../../assets/images/logo/1Ktv.gif";
 import { useNavigate } from "react-router-dom";
+import { RandomAvatar } from "react-random-avatars";
 
 function Tableau({ dataUsers }) {
   let navigate = useNavigate();
@@ -32,8 +33,16 @@ function Tableau({ dataUsers }) {
   // Ajouter les propriétés de chaque colonnes
   const data = dataNames.map((dataName) => ({
     id: dataName.id,
-    name: dataName.name,
-    avatar: !dataName.avatar ? "null" : dataName.avatar,
+    name:
+      dataName.name.charAt(0).toUpperCase() +
+      dataName.name.slice(1).toLowerCase(),
+    avatar: !dataName.avatar ? (
+      <div>
+        <RandomAvatar name={dataName.name} size={40} />
+      </div>
+    ) : (
+      dataName.avatar
+    ),
     email: dataName.email,
     validate_account: dataName.validate_account ? "true" : "false",
     siret: !dataName.siret ? "null" : dataName.siret,
@@ -43,6 +52,7 @@ function Tableau({ dataUsers }) {
     roles: dataName.roles.map((role) => role + "/"),
     updateAction: dataName,
   }));
+  console.log(dataNames[0].name);
 
   //j'extrait les champs updateAction et deleteAction de mes données pour les traiter
   const records = data.map(({ updateAction, deleteAction, ...rest }) => rest);

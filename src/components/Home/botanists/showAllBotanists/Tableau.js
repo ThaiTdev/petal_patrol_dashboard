@@ -13,7 +13,8 @@ function Tableau({ dataUsers }) {
 
   // Créer les colonnes en utilisant les noms de propriétés
   const columns = columnNames.map((columnName) => ({
-    name: columnName.charAt(0).toUpperCase() + columnName.slice(1), // Mettre en majuscule la première lettre du nom de la colonne
+    name:
+      columnName.charAt(0).toUpperCase() + columnName.slice(1).toLowerCase(), // Mettre en majuscule la première lettre du nom de la colonne
     selector: columnName,
     sortable: true,
   }));

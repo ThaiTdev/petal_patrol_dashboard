@@ -2,17 +2,15 @@ import { useInputControlerFormProfilUser } from "../../../../Hooks/HookUser/useI
 import { accountService } from "../../../../../_services/accountService";
 import { useParams } from "react-router-dom";
 import styles from "./Form.module.scss";
-import img from "../../../../../assets/images/users/homme.png";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { usePreviousPageId } from "../../../components/IdContext";
+import { RandomAvatar } from "react-random-avatars";
 
 function Form() {
   const [userEmail, setUserEmail] = useState("");
-  const [routeAvatar, setRouteAvatar] = useState(null);
   const [avatar, setAvatar] = useState("");
   const [userName, setUserName] = useState("");
-  const [setData, setDataUsers] = useState("");
   const [userId, setUserId] = useState("");
   const [userRoles, setUserRoles] = useState([]);
   const [validateAccount, setValidateAccount] = useState(false);
@@ -84,13 +82,21 @@ function Form() {
     >
       <div className={`d-flex flex-row ${styles.CustomerAvatarBox} `}>
         <div className={`mb-10 ${styles.avatarContainer}`}>
-          <div className={styles.avatarBoxImage}>
-            <img
-              className={styles.avatarImage}
-              src={routeAvatar ? routeAvatar : avatar ? avatar : img}
-              alt="photo_de_profil"
-            />
-          </div>
+          {avatar ? (
+            <div className={styles.avatarBoxImage}>
+              <img
+                className={styles.avatarImage}
+                src={avatar}
+                alt="photo_de_profil"
+              />
+            </div>
+          ) : (
+            userName && ( // Vérifiez si userName est disponible
+              <div>
+                <RandomAvatar name={userName} size={100} />
+              </div>
+            )
+          )}
 
           <label
             htmlFor="avatar"

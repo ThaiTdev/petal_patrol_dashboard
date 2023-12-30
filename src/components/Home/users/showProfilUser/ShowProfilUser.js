@@ -6,7 +6,7 @@ import { usePreviousPageId } from "../../components/IdContext";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import img from "../../../../assets/images/users/homme.png";
+import { RandomAvatar } from "react-random-avatars";
 
 const ShowProfilUser = () => {
   const { id } = useParams();
@@ -82,13 +82,21 @@ const ShowProfilUser = () => {
           >
             <div className={`d-flex flex-row ${styles.CustomerAvatarBox} `}>
               <div className={`mb-10 ${styles.avatarContainer}`}>
-                <div className={styles.avatarBoxImage}>
-                  <img
-                    className={styles.avatarImage}
-                    src={routeAvatar ? routeAvatar : avatar ? avatar : img}
-                    alt="photo_de_profil"
-                  />
-                </div>
+                {avatar ? (
+                  <div className={styles.avatarBoxImage}>
+                    <img
+                      className={styles.avatarImage}
+                      src={avatar}
+                      alt="photo_de_profil"
+                    />
+                  </div>
+                ) : (
+                  userName && ( // Vérifiez si userName est disponible
+                    <div>
+                      <RandomAvatar name={userName} size={100} />
+                    </div>
+                  )
+                )}
 
                 <label
                   htmlFor="avatar"
