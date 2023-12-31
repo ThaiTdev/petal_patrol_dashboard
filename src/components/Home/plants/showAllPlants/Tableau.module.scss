@@ -1,0 +1,44 @@
+@use "../../../../assets/styles/mixins" as mixin;
+
+.tableauContainer {
+  width: 100%;
+  height: 410px;
+  overflow: scroll;
+  overflow-x: hidden;
+  position: relative;
+}
+.tableauContainerFalse {
+  width: 90vw;
+  height: 410px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.tableauSubContainer {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+.classInputOpen {
+  font-size: inherit;
+  font-family: inherit;
+  line-height: 1;
+  padding: 0 1em;
+  background-color: #fff;
+  border: 2px solid var(--semantic-6-1);
+  width: clamp(150px, 50%, 300px);
+  height: 2.25rem;
+  border-radius: 30px;
+  margin-right: 10px;
+
+  transition: width 0.5s;
+  &:focus {
+    outline-color: var(--semantic-6);
+  }
+}
+.classInputClose {
+  border: none;
+  width: clamp(0px, 0%, 300px);
+  transition: all 0.25s;
+}

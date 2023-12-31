@@ -3,11 +3,11 @@ import Footer from "../components/Footer";
 import styles from "./pageAccueilDashboard.module.scss";
 import { Link, useParams } from "react-router-dom";
 //images//
-import card from "../../../assets/images/monProfil/credit-card.png";
-import facture from "../../../assets/images/monProfil/facture.png";
-import identifications from "../../../assets/images/monProfil/identification.png";
+import plant from "../../../assets/images/monProfil/plante.png";
+import botanist from "../../../assets/images/monProfil/jardinier.png";
+import utilisateurs from "../../../assets/images/monProfil/utilisateurs.png";
 import preference from "../../../assets/images/monProfil/preference.png";
-import profil from "../../../assets/images/monProfil/profil.png";
+import reglages from "../../../assets/images/monProfil/reglages.png";
 import notif from "../../../assets/images/monProfil/notifications.png";
 import arrowfrom from "../../../assets/images/monProfil/Arrow.png";
 import { useNavigate } from "react-router-dom";
@@ -23,6 +23,9 @@ const PageAccueilDashboard = () => {
   };
   const handleOnClickGestionBotanist = () => {
     navigate(`/ShowAllBotanists/${id}`);
+  };
+  const handleOnClickGestionPlant = () => {
+    navigate(`/ShowAllPlants/${id}`);
   };
 
   const linkCheck = {
@@ -54,8 +57,14 @@ const PageAccueilDashboard = () => {
                 className={`d-flex flex-row justify-content-center align-items-center ${styles.menuChangePage}`}
               >
                 <div className={`${styles.ChangePage} mr-10`}>
-                  <div className={`${styles.definitionLink} mr-10`}>
-                    <img src={profil} alt="profil" />
+                  <div
+                    className={`d-flex flex-row justify-content-center align-items-center ${styles.definitionLink} mr-10`}
+                  >
+                    <img
+                      src={reglages}
+                      alt="reglages"
+                      style={{ width: "30px" }}
+                    />
                     <p onClick={handleOnClick}>Modifier mon profil</p>
                   </div>
                   <div className={`${styles.Arrow}`}>
@@ -63,8 +72,14 @@ const PageAccueilDashboard = () => {
                   </div>
                 </div>
                 <div className={`${styles.ChangePage}`}>
-                  <div className={`${styles.definitionLink} mr-10`}>
-                    <img src={identifications} alt="identifications" />
+                  <div
+                    className={`d-flex flex-row justify-content-center align-items-center ${styles.definitionLink} mr-10`}
+                  >
+                    <img
+                      src={utilisateurs}
+                      alt="utilisateurs"
+                      style={{ width: "30px" }}
+                    />
                     <p onClick={handleOnClickGestionUser}>
                       Gérer les Utilisateurs
                     </p>
@@ -78,8 +93,14 @@ const PageAccueilDashboard = () => {
                 className={`d-flex flex-row justify-content-center align-items-center ${styles.menuChangePage}`}
               >
                 <div className={`${styles.ChangePage} mr-10`}>
-                  <div className={`${styles.definitionLink} mr-10`}>
-                    <img src={facture} alt="facture" />
+                  <div
+                    className={`d-flex flex-row justify-content-center align-items-center ${styles.definitionLink} mr-10`}
+                  >
+                    <img
+                      src={botanist}
+                      alt="botanist"
+                      style={{ width: "30px" }}
+                    />
                     <p onClick={handleOnClickGestionBotanist}>
                       Gérer les Botanists
                     </p>
@@ -89,9 +110,11 @@ const PageAccueilDashboard = () => {
                   </div>
                 </div>
                 <div className={`${styles.ChangePage}`}>
-                  <div className={`${styles.definitionLink} mr-10`}>
-                    <img src={card} alt="carte-de-credit" />
-                    <p>Accéder aux Annonces</p>
+                  <div
+                    className={`d-flex flex-row justify-content-center align-items-center ${styles.definitionLink} mr-10`}
+                  >
+                    <img src={plant} alt="plant" style={{ width: "30px" }} />
+                    <p onClick={handleOnClickGestionPlant}>Gérer les plants</p>
                   </div>
                   <div className={`${styles.Arrow}`}>
                     <img src={arrowfrom} alt="profil" />

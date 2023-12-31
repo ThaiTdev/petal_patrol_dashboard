@@ -14,10 +14,6 @@ let signout = () => {
   return Axios.get(`/auth/signout/`);
 };
 
-let emailConfirm = (activateCode) => {
-  return Axios.post(`/emailConfirm/${activateCode}`);
-};
-
 let forgotPassword = (data) => {
   return Axios.post("/user/reset-password", data);
 };
@@ -44,12 +40,8 @@ let uploadAvatarUser = (data, id) => {
   return Axios.post(`/uploadAvatarUser/${id}`, data);
 };
 
-let uploadCvUser = (data, id) => {
-  return Axios.post(`/uploadCvUser/${id}`, data);
-};
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////
-//Botanist//
+//Botanists//
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
 let showAllBotanists = () => {
@@ -62,31 +54,24 @@ let UpdateProfilBotanist = (data, id) => {
   return Axios.put(`/waiting-list/${id}`, data);
 };
 
-///////////////////////////////////////////////////
-//gestion des tokens///////////////////////////////
-//////////////////////////////////////////////////
-let saveToken = (token) => {
-  localStorage.setItem("token", token);
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//plants//
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+let showAllPlants = () => {
+  return Axios.get(`/plant/`);
 };
-
-// let logout = () => {
-//   localStorage.removeItem("token");
-// };
-
-let isLogged = () => {
-  let token = localStorage.getItem("token");
-
-  return !!token;
+let showDetailsPlant = (id) => {
+  return Axios.get(`/plant/${id}`);
+};
+let UpdateDetailsPlant = (data, id) => {
+  return Axios.put(`/plant/${id}`, data);
 };
 
 export const accountService = {
-  //tokens//
-  saveToken,
-  isLogged,
   //Authentification//
   signin,
   signout,
-  emailConfirm,
   forgotPassword,
   resetPassword,
   //Users//
@@ -94,9 +79,12 @@ export const accountService = {
   showProfileUser,
   UpdateProfilUser,
   uploadAvatarUser,
-  uploadCvUser,
   //Botanist//
   showAllBotanists,
   showProfileBotanist,
   UpdateProfilBotanist,
+  //Plants//
+  showAllPlants,
+  showDetailsPlant,
+  UpdateDetailsPlant,
 };

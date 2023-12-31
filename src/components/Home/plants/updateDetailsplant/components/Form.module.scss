@@ -1,0 +1,46 @@
+@use "../../../../../assets/styles/mixins" as mixin;
+
+.formContainer {
+  width: 90%;
+  height: auto;
+  padding-bottom: 10px;
+  .avatarContainer {
+    position: relative;
+    .avatarBoxImage {
+      max-height: 100px;
+      width: 100px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 80px;
+      box-shadow: var(--box-shadow);
+      img {
+        object-fit: cover;
+      }
+    }
+    .label_avatar {
+      position: absolute;
+      bottom: 2px;
+      right: -2px;
+      cursor: pointer;
+      width: 30px;
+    }
+    .avatarImage {
+      object-fit: cover;
+    }
+  }
+  .avatar {
+    display: none;
+  }
+  .form {
+    width: 100%;
+    .inputName {
+      width: 100%;
+      border: none;
+      border-bottom: 2px solid var(--semantic-11);
+      padding-bottom: 10px;
+      &:focus {
+        outline-color: var(--semantic-6);
+      }
+    }
+  }
+}
