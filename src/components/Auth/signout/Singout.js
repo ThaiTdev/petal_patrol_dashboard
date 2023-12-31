@@ -1,16 +1,16 @@
 import { accountService } from "../../../_services/accountService";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { usePreviousPageId } from "../../Home/components/IdContext";
+// import { usePreviousPageId } from "../../Home/components/IdContext";
 
 const Signout = () => {
-  const { id } = useParams();
+  // const { id } = useParams();
   let navigate = useNavigate();
-  const { setPreviousId } = usePreviousPageId();
+  // const { setPreviousId } = usePreviousPageId();
 
   try {
     accountService
-      .signout(id, {
+      .signout({
         headers: {
           "Content-Type": "application/json",
         },

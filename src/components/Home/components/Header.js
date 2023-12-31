@@ -22,7 +22,7 @@ const Header = ({ linkCheck }) => {
     >
       <div className="d-flex flex-row justify-content-center align-items-center ">
         <div className={`${styles.ContainerLogo}`}>
-          <img src={picto} alt="picto" />
+          <img className="mt-5" src={picto} alt="picto" />
         </div>
         <div>
           <h2>PetalPatrol</h2>

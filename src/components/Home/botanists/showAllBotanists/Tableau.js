@@ -1,7 +1,9 @@
 import DataTable from "react-data-table-component";
 import React, { useState } from "react";
+import styles from "./Tableau.module.scss";
 import UpdateImage from "../../../../assets/images/users/update_user/crayon.png";
 import loadingGif from "../../../../assets/images/logo/1Ktv.gif";
+import loupe from "../../../../assets/images/users/loupe.png";
 import { useNavigate } from "react-router-dom";
 
 function Tableau({ dataUsers }) {
@@ -39,6 +41,7 @@ function Tableau({ dataUsers }) {
   //j'extrait les champs updateAction et deleteAction de mes données pour les traiter
   const records = data.map(({ updateAction, deleteAction, ...rest }) => rest);
   const [recordsState, setRecordsState] = useState(records);
+  const [ckeckSearch, setCheckSearch] = useState(false);
 
   //Cette methode permet de modifier l'user
   const handleUpdate = (row) => {
@@ -54,6 +57,10 @@ function Tableau({ dataUsers }) {
     setRecordsState(newData);
   }
 
+  function handleOnClick() {
+    ckeckSearch ? setCheckSearch(false) : setCheckSearch(true);
+  }
+
   return (
     <div
       className={`d-flex flex-column justify-content-center align-items-end `}
@@ -65,11 +72,21 @@ function Tableau({ dataUsers }) {
               <img src={loadingGif} alt="cactus" />
             </div>
           )}
-          <div className="text-end m-20">
+          <div
+            className={`text-end ml-20 ${
+              ckeckSearch ? styles.classInputOpen : styles.classInputClose
+            }`}
+          >
             <input
               type="text"
               placeholder="Recherche User"
               onChange={handleFilter}
+            />
+            <img
+              src={loupe}
+              alt="loupe"
+              style={{ width: "37px" }}
+              onClick={handleOnClick}
             />
           </div>
         </div>

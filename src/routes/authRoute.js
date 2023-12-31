@@ -15,7 +15,7 @@ const AuthRoutes = () => {
       />
       <Route path="/AuthForm" element={<AuthForm />} />
       <Route path="/ForgotPassword" element={<ForgotPassword />} />
-      <Route path="/Singout/:id" element={<Singout />} />
+      <Route path="/Singout" element={<Singout />} />
       <Route
         path="/user/reset-password/:id/:token/:serverToken"
         element={<ResetPassword />}

@@ -63,11 +63,7 @@ function ShowAllUsers() {
           </div>
         </div>
         <div className={`${styles.title}`}>
-          <Link
-            to={`/Singout/${id}`}
-            style={{ textDecoration: "none" }}
-            href="/"
-          >
+          <Link to={`/Singout`} style={{ textDecoration: "none" }} href="/">
             <p>Me déconnecter</p>
           </Link>
         </div>

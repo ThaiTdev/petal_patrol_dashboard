@@ -33,7 +33,7 @@ const FormUpdateProfilCustomer = () => {
               className={`fa-solid fa-arrow-left fz-20  ${styles.ProArrow}`}
             ></i>
           </Link>
-          <p className="fz-20 ml-10">Retour au tableau d'utlisateurs</p>
+          <p className="fz-20 ml-10">Retour à la list d'utlisateurs</p>
         </div>
         <div className={` d-flex flex-row ${styles.boxProfilText}`}>
           <Form />

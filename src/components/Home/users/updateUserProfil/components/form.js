@@ -131,6 +131,7 @@ function Form() {
             defaultValue={userName.toUpperCase()}
             {...register("userName")}
             required
+            autoFocus
           />
           <label htmlFor="userEmail" className="fz-12  mb-10">
             Email
@@ -142,7 +143,6 @@ function Form() {
             name={"userEmail"}
             value={userEmail}
             {...register("userEmail")}
-            required
           />
         </div>
         <div className="d-flex justify-content-between align-items-center">

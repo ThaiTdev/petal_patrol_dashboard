@@ -38,6 +38,9 @@
       border: none;
       border-bottom: 2px solid var(--semantic-11);
       padding-bottom: 10px;
+      &:focus {
+        outline-color: var(--semantic-6);
+      }
     }
   }
 }

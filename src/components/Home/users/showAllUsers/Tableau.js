@@ -5,6 +5,7 @@ import loadingGif from "../../../../assets/images/logo/1Ktv.gif";
 import { useNavigate } from "react-router-dom";
 import { RandomAvatar } from "react-random-avatars";
 import styles from "./Tableau.module.scss";
+import loupe from "../../../../assets/images/users/loupe.png";
 
 function Tableau({ dataUsers }) {
   let navigate = useNavigate();
@@ -53,11 +54,11 @@ function Tableau({ dataUsers }) {
     roles: dataName.roles.map((role) => role + "/"),
     updateAction: dataName,
   }));
-  console.log(dataNames[0].name);
 
   //j'extrait les champs updateAction et deleteAction de mes données pour les traiter
   const records = data.map(({ updateAction, deleteAction, ...rest }) => rest);
   const [recordsState, setRecordsState] = useState(records);
+  const [ckeckSearch, setCheckSearch] = useState(false);
 
   //Cette methode permet de modifier l'user
   const handleUpdate = (row) => {
@@ -71,6 +72,10 @@ function Tableau({ dataUsers }) {
       return row.name.toLowerCase().includes(even.target.value.toLowerCase());
     });
     setRecordsState(newData);
+  }
+
+  function handleOnClick() {
+    ckeckSearch ? setCheckSearch(false) : setCheckSearch(true);
   }
 
   return (
@@ -93,12 +98,21 @@ function Tableau({ dataUsers }) {
             </div>
           )}
 
-          <div className="text-end ml-20 ">
+          <div className=" d-flex justify-content-center  text-end ml-20 ">
             <input
-              className={`text-end ml-20 ${styles.classInput}`}
+              className={`text-end ml-20 ${
+                ckeckSearch ? styles.classInputOpen : styles.classInputClose
+              }`}
               type="text"
               placeholder="Recherche User"
               onChange={handleFilter}
+            />
+
+            <img
+              src={loupe}
+              alt="loupe"
+              style={{ width: "37px", cursor: "pointer" }}
+              onClick={handleOnClick}
             />
           </div>
         </div>
