@@ -41,7 +41,7 @@ function Tableau({ dataUsers }) {
   //j'extrait les champs updateAction et deleteAction de mes données pour les traiter
   const records = data.map(({ updateAction, deleteAction, ...rest }) => rest);
   const [recordsState, setRecordsState] = useState(records);
-  const [ckeckSearch, setCheckSearch] = useState(false);
+  const [checkSearch, setCheckSearch] = useState(false);
 
   //Cette methode permet de modifier l'user
   const handleUpdate = (row) => {
@@ -58,15 +58,16 @@ function Tableau({ dataUsers }) {
   }
   //barre de recherche///////////////////////////////////////////////
   const inputRef = useRef();
+  //si ma variable checkSearch est à true je la passe à false et réciproquement
   function handleOnClick() {
-    ckeckSearch ? setCheckSearch(false) : setCheckSearch(true);
+    checkSearch ? setCheckSearch(false) : setCheckSearch(true);
   }
   useEffect(() => {
-    if (ckeckSearch) {
-      // Appliquer le focus lorsque ckeckSearch est vrai
+    if (checkSearch) {
+      // Appliquer le focus lorsque checkSearch est vrai
       inputRef.current.focus();
     }
-  }, [ckeckSearch]); // Effectuer cette vérification lorsque ckeckSearch change
+  }, [checkSearch]); // Effectuer cette vérification lorsque checkSearch change
   /////////////////////////////////////////////////////////////////////
   return (
     <div
@@ -81,7 +82,7 @@ function Tableau({ dataUsers }) {
           )}
           <div
             className={`text-end ml-20 ${
-              ckeckSearch ? styles.classInputOpen : styles.classInputClose
+              checkSearch ? styles.classInputOpen : styles.classInputClose
             }`}
           >
             <input

@@ -8,13 +8,17 @@ import botanist from "../../../assets/images/monProfil/jardinier.png";
 import utilisateurs from "../../../assets/images/monProfil/utilisateurs.png";
 import preference from "../../../assets/images/monProfil/preference.png";
 import reglages from "../../../assets/images/monProfil/reglages.png";
-import notif from "../../../assets/images/monProfil/notifications.png";
 import arrowfrom from "../../../assets/images/monProfil/Arrow.png";
+import cloche from "../../../assets/images/monProfil/cloche.png";
+import messageUser from "../../../assets/images/monProfil/email.png";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const PageAccueilDashboard = () => {
   let navigate = useNavigate();
   const { id } = useParams();
+  const [counterMessage, setCounterMessage] = useState("1");
+  const [counterBotanistWait, setCounterBotanistWait] = useState("5");
   const handleOnClick = () => {
     navigate(`/FormUpdateProfilUser/${id}`);
   };
@@ -92,7 +96,19 @@ const PageAccueilDashboard = () => {
               <div
                 className={`d-flex flex-row justify-content-center align-items-center ${styles.menuChangePage}`}
               >
-                <div className={`${styles.ChangePage} mr-10`}>
+                <div
+                  className={`${
+                    counterBotanistWait > 0
+                      ? styles.ChangePageNotification
+                      : styles.ChangePage
+                  }   mr-10`}
+                  counter={counterBotanistWait}
+                >
+                  {counterBotanistWait > 0 && (
+                    <div className={`${styles.ChangePageCloche}`}>
+                      <img src={cloche} alt="cloche" />
+                    </div>
+                  )}
                   <div
                     className={`d-flex flex-row justify-content-center align-items-center ${styles.definitionLink} mr-10`}
                   >
@@ -121,18 +137,38 @@ const PageAccueilDashboard = () => {
                   </div>
                 </div>
               </div>
+
               <div
                 className={`d-flex flex-row justify-content-center align-items-center ${styles.menuChangePage}`}
               >
-                <div className={`${styles.ChangePage} mr-10`}>
-                  <div className={`${styles.definitionLink} mr-10`}>
-                    <img src={notif} alt="notifications" />
-                    <p>Réglages des notifications</p>
+                <div
+                  className={`${
+                    counterMessage > 0
+                      ? styles.ChangePageNotification
+                      : styles.ChangePage
+                  }   mr-10`}
+                  counter={counterMessage}
+                >
+                  {counterMessage > 0 && (
+                    <div className={`${styles.ChangePageCloche}`}>
+                      <img src={cloche} alt="cloche" />
+                    </div>
+                  )}
+                  <div
+                    className={`d-flex flex-row justify-content-center align-items-center ${styles.definitionLink} mr-10`}
+                  >
+                    <img
+                      src={messageUser}
+                      alt="notifications"
+                      style={{ width: "30px" }}
+                    />
+                    <p>Messages</p>
                   </div>
                   <div className={`${styles.Arrow}`}>
                     <img src={arrowfrom} alt="profil" />
                   </div>
                 </div>
+
                 <div className={`${styles.ChangePage}`}>
                   <div className={`${styles.definitionLink} mr-10`}>
                     <img src={preference} alt="preference" />

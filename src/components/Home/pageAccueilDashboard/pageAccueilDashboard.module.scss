@@ -51,6 +51,58 @@
                 transition: all 0.4s;
               }
             }
+            .ChangePageNotification {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              background-color: var(--neutral-8);
+              width: 300px;
+              height: 80px;
+              border: 1px solid var(--semantic-6);
+              border-radius: 10px;
+              box-shadow: var(--box-shadow-nav);
+              margin-left: 20px;
+              position: relative;
+              p {
+                font-weight: 700;
+                font-size: 0.9rem;
+                margin: 0 0 0 10px;
+              }
+              .definitionLink {
+                display: flex;
+              }
+              .Arrow {
+                display: none;
+              }
+              &:hover {
+                cursor: pointer;
+                color: var(--primary-3);
+                transition: all 0.4s;
+              }
+              .ChangePageCloche {
+                position: absolute;
+                width: 30px;
+                right: 10px;
+              }
+              &:after {
+                content: attr(counter);
+                position: absolute;
+                width: 30px;
+                right: 10px;
+                background: red;
+                width: 18px;
+                height: 18px;
+                border-radius: 18px;
+                border: 3px white solid;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                font-weight: 500;
+                right: 3px;
+                bottom: 20px;
+              }
+            }
           }
         }
         .menuText {
