@@ -1,5 +1,5 @@
 import DataTable from "react-data-table-component";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styles from "./Tableau.module.scss";
 import UpdateImage from "../../../../assets/images/users/update_user/crayon.png";
 import loadingGif from "../../../../assets/images/logo/1Ktv.gif";
@@ -56,11 +56,18 @@ function Tableau({ dataUsers }) {
     });
     setRecordsState(newData);
   }
-
+  //barre de recherche///////////////////////////////////////////////
+  const inputRef = useRef();
   function handleOnClick() {
     ckeckSearch ? setCheckSearch(false) : setCheckSearch(true);
   }
-
+  useEffect(() => {
+    if (ckeckSearch) {
+      // Appliquer le focus lorsque ckeckSearch est vrai
+      inputRef.current.focus();
+    }
+  }, [ckeckSearch]); // Effectuer cette vérification lorsque ckeckSearch change
+  /////////////////////////////////////////////////////////////////////
   return (
     <div
       className={`d-flex flex-column justify-content-center align-items-end `}
@@ -87,6 +94,7 @@ function Tableau({ dataUsers }) {
               alt="loupe"
               style={{ width: "37px" }}
               onClick={handleOnClick}
+              ref={inputRef}
             />
           </div>
         </div>

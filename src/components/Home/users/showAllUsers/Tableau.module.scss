@@ -31,12 +31,12 @@
   height: 2.25rem;
   border-radius: 30px;
   margin-right: 10px;
-
   transition: width 0.5s;
   &:focus {
     outline-color: var(--semantic-6);
   }
 }
+
 .classInputClose {
   border: none;
   width: clamp(0px, 0%, 300px);
