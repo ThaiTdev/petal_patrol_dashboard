@@ -16,6 +16,9 @@
       .title {
         width: 100%;
       }
+      .logout {
+        display: inline-block;
+      }
       .menu {
         width: 100%;
         .menuOption {
@@ -92,11 +95,11 @@
                 background: red;
                 width: 18px;
                 height: 18px;
-                border-radius: 18px;
+                border-radius: 100%;
                 border: 3px white solid;
                 display: flex;
                 justify-content: center;
-                align-items: center;
+                align-items: end;
                 color: white;
                 font-weight: 500;
                 right: 3px;

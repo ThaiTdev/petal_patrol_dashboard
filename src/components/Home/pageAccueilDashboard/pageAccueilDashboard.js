@@ -183,7 +183,7 @@ const PageAccueilDashboard = () => {
           </div>
           <div className={`${styles.title}`}>
             <Link to={`/Singout`} style={{ textDecoration: "none" }} href="/">
-              <p>Me déconnecter</p>
+              <p className={`${styles.logout}`}>Me déconnecter</p>
             </Link>
           </div>
         </div>
